@@ -1,0 +1,13 @@
+name: Patchwork scan
+on: pull_request
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: patchworkfix/patchwork-action@v1
+        with:
+          fail-on: critical
